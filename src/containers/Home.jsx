@@ -7,9 +7,6 @@ import moment from 'moment'
 import matchSorter from 'match-sorter'
 import eyeLoading from '../eyeLoading.gif'
 
-// CONTEXT
-// import {Context} from '../MyProvider'
-
 // COMPONENTS
 import Input from '../components/form/Input'
 import Button from '../components/Button'
@@ -21,7 +18,6 @@ import checkLogin from '../actions/checkLogin.js'
 import fetchPasswords from '../actions/passwordsAction.js'
 import {updateForm,exitEditMode} from '../actions/formAction.js'
 import {create,deleteDoc,findOne,update} from '../actions/crudAction.js'
-import Validation from '../components/ValidationList';
 
 class Home extends Component {
     constructor(props) {
@@ -184,10 +180,10 @@ class Home extends Component {
         formHandler = this.handleFormSave
       }
 
-      let unaddable = true
-      if(strength === 100){
-        unaddable = false
-      }
+      // let unaddable = true
+      // if(strength === 100){
+      //   unaddable = false
+      // }
       
       return (
         <div className="container mt-3 mb-3">
@@ -256,7 +252,7 @@ class Home extends Component {
                         action={this.handleFormAdd}
                         bootstrap={"btn btn-outline-black"}
                         title={"Add"}
-                        disabled={unaddable}
+                        // disabled={unaddable}
                         // type={"Submit"}
                       />
                     ): (
@@ -270,7 +266,7 @@ class Home extends Component {
                           action={this.handleFormSave}
                           bootstrap={"btn btn-outline-black"}
                           title={"Update"}
-                          disabled={unaddable}
+                          // disabled={unaddable}
                           // type={"Submit"}
                         />
                       </>
@@ -281,39 +277,9 @@ class Home extends Component {
             </div>
             <div className="col-sm-6">
               <div className="card z-depth-2" style={cardBorder}>
-                {/* <img className="card-img-top mx-auto mt-3 img-thumbnail z-depth-2" 
-                  onError={(e)=>{e.target.onerror = null; e.target.src="https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX28756542.jpg"}} 
-                  src={logo} 
-                  style={{...cardBorder,width:'100px',height:'100px'}} 
-                /> */}
                 <Thumbnail url={url} cardBorder={cardBorder} />
                 <div className="card-body">
                   <ul className="list-group">
-                    {/* {this.passwordContainUppercase() ? (
-                      <li className="list-group-item list-group-item-success"><i className="fas fa-check"></i> &nbsp; Password must contain at least one uppercase character</li>
-                    ):(
-                      <li className="list-group-item list-group-item-danger">Password must contain at least one uppercase character</li>
-                    )}
-                    {this.passwordContainLowercase() ? (
-                      <li className="list-group-item list-group-item-success"><i className="fas fa-check"></i> &nbsp; Password must contain at least one lowercase character</li>
-                    ):(
-                      <li className="list-group-item list-group-item-danger">Password must contain at least one lowercase character</li>
-                    )}
-                    {this.passwordContainSpecialChar() ? (
-                      <li className="list-group-item list-group-item-success"><i className="fas fa-check"></i> &nbsp; Password must contain at least one special character</li>
-                    ):(
-                      <li className="list-group-item list-group-item-danger">Password must contain at least one special character</li>
-                    )}
-                    {this.passwordContainDigit() ? (
-                      <li className="list-group-item list-group-item-success"><i className="fas fa-check"></i> &nbsp; Password must contain at least one numeric digit</li>
-                    ):(
-                      <li className="list-group-item list-group-item-danger">Password must contain at least one numeric digit</li>
-                    )}
-                    {this.passwordMinLength() ? (
-                      <li className="list-group-item list-group-item-success"><i className="fas fa-check"></i> &nbsp; Password must be at least 5 characters long</li>
-                    ):(
-                      <li className="list-group-item list-group-item-danger">Password must be at least 5 characters long</li>
-                    )} */}
                     <ValidationList />
                   </ul>
                 </div>
